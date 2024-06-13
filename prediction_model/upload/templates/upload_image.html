@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подбор релевантых товаров</title>
+
+</head>
+<body>
+
+<form action="{% url 'upload_image' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p><input type="file" name="file"></p>
+    <p><button type="submit">Отправить</button></p>
+    <p>Выбранный товар:</p>
+    <img src="{{ path }}" width="100" alt="Выбранный товар">
+    <p>{{ count }}</p>
+    <p>Релевантные товары:</p>
+    <img src="{{ image1 }}" width="100" alt="Выбранный товар">
+    <img src="{{ image2 }}" width="100" alt="Выбранный товар">
+    <img src="{{ image3 }}" width="100" alt="Выбранный товар">
+    <img src="{{ image4 }}" width="100" alt="Выбранный товар">
+    <img src="{{ image5 }}" width="100" alt="Выбранный товар">
+</form>
+
+</body>
+<style>
+    p {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+img {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+</style>
+</html>
